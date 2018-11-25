@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/products', 'ProductController@index')->name('products.show');
+Route::get('/logs', 'LogController@index')->name('logs.show');
+Route::get('/logs/create', 'LogController@create')->name('logs.create');
+Route::post('/logs', 'LogController@store')->name('logs.store');
+Route::get('/products/create', 'ProductController@create')->name('products.create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
