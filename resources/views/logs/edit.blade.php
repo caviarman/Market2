@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('logs.update', ['id' => $log->id]) }}">
+    <form method="POST" action="{{ route('logs.update', ['id' => $log->id]) }}">
         @csrf
-        @method('PUT')
+        @method('PATCH')
         <div class="form-group">
             <label for="operation">Операция</label>
             <select class="form-control" id="operation" name="operation">
-                <option selected value="{{ $log->operation }}">{{ $log->operation ? "Приход" : "Расход" }}</option>
-                <option value="1">Приход</option>
-                <option value="0">Расход</option>
+                <option selected value="{{ $log->operation }}">{{ $log->operation }}</option>
+                <option value="Приход">Приход</option>
+                <option value="Расход">Расход</option>
             </select>
         </div>
         <div class="form-group">

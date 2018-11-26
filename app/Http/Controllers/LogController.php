@@ -84,7 +84,7 @@ class LogController extends Controller
     {
         $log = Log::find($id)->update($request->all());
         
-        return $log;
+        return redirect()->route('logs.index');
     }
 
     /**
