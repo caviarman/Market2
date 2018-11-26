@@ -17,6 +17,7 @@
             <th scope="col">Цена</th>
             <th scope="col">Комментарий</th>
             <th scope="col">Дата</th>
+            <th scope="col">Действие</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
             <td>{{ $log->price }}</td>
             <td>{{ $log->comments }}</td>
             <td>{{ $log->created_at }}</td>
+            <td><a href="{{ route('logs.edit', ['id' => $log->id]) }}">Редактировать</a></td>
             </tr>
             @endforeach
         </tbody>

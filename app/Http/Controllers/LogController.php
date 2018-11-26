@@ -47,7 +47,7 @@ class LogController extends Controller
             'price' => (double)$request->price,
             'comments' => $request->comments ?? '',
         ]);
-        return redirect()->route('logs.show', ['logs' => Log::get()]);
+        return redirect()->route('logs.index', ['logs' => Log::get()]);
     }
 
     /**
@@ -58,7 +58,7 @@ class LogController extends Controller
      */
     public function show(Log $log)
     {
-        //
+       
     }
 
     /**
@@ -67,9 +67,10 @@ class LogController extends Controller
      * @param  \App\Log  $log
      * @return \Illuminate\Http\Response
      */
-    public function edit(Log $log)
+    public function edit($id)
     {
-        //
+        $log = Log::find($id);
+        return view('logs.edit', ['log' => $log]);
     }
 
     /**
@@ -79,9 +80,11 @@ class LogController extends Controller
      * @param  \App\Log  $log
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Log $log)
+    public function update(Request $request, $id)
     {
-        //
+        $log = Log::find($id)->update($request->all());
+        
+        return $log;
     }
 
     /**
