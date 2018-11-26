@@ -18,7 +18,10 @@ class LogController extends Controller
     }
     public function index()
     {
-        return view('logs.index', ['logs' => Log::paginate(10)]);
+        return view('logs.index', [
+            'logs' => Log::where('user_id', auth()->user()->id)->paginate(10)
+            ]
+        );
     }
 
     /**
@@ -93,8 +96,9 @@ class LogController extends Controller
      * @param  \App\Log  $log
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Log $log)
+    public function destroy($id)
     {
-        //
+        Log::find($id)->delete();
+        return redirect()->route('logs.index');
     }
 }

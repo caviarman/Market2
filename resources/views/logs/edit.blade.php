@@ -43,7 +43,7 @@
 </div>
 <br>
 <div class="container">
-    <form action="{{ route('logs.delete', ['id' => $log->id]) }}">
+    <form method="POST" action="{{ route('logs.delete', ['id' => $log->id]) }}">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-primary">Удалить</button>
