@@ -33,7 +33,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('category.index') }}">Категории<span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

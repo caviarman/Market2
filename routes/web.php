@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/products', 'ProductController@index')->name('products.index');
+Route::get('/products/create', 'ProductController@create')->name('products.create');
+
 Route::get('/logs', 'LogController@index')->name('logs.index');
 Route::get('/logs/create', 'LogController@create')->name('logs.create');
 Route::post('/logs', 'LogController@store')->name('logs.store');
@@ -22,7 +24,9 @@ Route::get('/logs/{id}', 'LogController@show')->name('logs.show');
 Route::get('/logs/{id}/edit', 'LogController@edit')->name('logs.edit');
 Route::patch('/logs/{id}', 'LogController@update')->name('logs.update');
 Route::delete('/logs/{id}', 'LogController@destroy')->name('logs.delete');
-Route::get('/products/create', 'ProductController@create')->name('products.create');
+
+Route::get('/category/create', 'CategoryController@create')->name('category.create');
+Route::get('/category', 'CategoryController@index')->name('category.index');
 
 Auth::routes();
 

@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
     <p>
+        <h2>Запись</h2>
+    </p>
+</div>
+<div class="container">
+    <p>
         <a class="btn btn-secondary" href="{{ route('logs.create') }}" role="button">Добавить</a>
     </p>
 </div>
