@@ -20,7 +20,7 @@ class LogController extends Controller
     public function index()
     {
         return view('logs.index', [
-            'logs' => Log::where('user_id', auth()->user()->id)->orderBy('id')->paginate(10)
+            'logs' => auth()->user()->logs()->orderBy('id')->paginate(10)
             ]
         );
     }

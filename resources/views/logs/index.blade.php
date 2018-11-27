@@ -17,6 +17,7 @@
             <tr>
             <th scope="col">#</th>
             <th scope="col">Операция</th>
+            <th scope="col">Категория</th>
             <th scope="col">Товар</th>
             <th scope="col">Цена</th>
             <th scope="col">Комментарий</th>
@@ -29,6 +30,7 @@
             <tr>
             <th scope="row">{{ $log->id }}</th>
             <td>{{ $log->operation }}</td>
+            <td>{{ $log->category->name }}</td>
             <td>{{ $log->product }}</td>
             <td>{{ $log->price }}</td>
             <td>{{ $log->comments }}</td>

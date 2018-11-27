@@ -9,4 +9,8 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
 }
