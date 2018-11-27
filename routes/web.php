@@ -27,6 +27,9 @@ Route::delete('/logs/{id}', 'LogController@destroy')->name('logs.delete');
 
 Route::get('/category/create', 'CategoryController@create')->name('category.create');
 Route::get('/category', 'CategoryController@index')->name('category.index');
+Route::post('/category', 'CategoryController@store')->name('category.store');
+Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
+Route::patch('/category/{id}', 'CategoryController@update')->name('category.update');
 
 Auth::routes();
 

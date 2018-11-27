@@ -16,13 +16,10 @@
         <div class="form-group">
             <label for="category">Категория</label>
             <select class="form-control" id="category" name="category">
-                <option selected value="{{ $log->category }}">{{ $log->category }}</option>
-                <option value="Продукты">Продукты</option>
-                <option value="Хозяйство">Хозяйство</option>
-                <option value="Школа">Школа</option>
-                <option value="Здоровье">Здоровье</option>
-                <option value="Отдых">Отдых</option>
-                <option value="Другое">Другое</option>
+                <option selected>выбрать категорию</option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}"> {{ $category->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">

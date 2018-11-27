@@ -35,7 +35,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create([
+            'name' => $request->name
+        ]);
+        return redirect()->route('category.index', ['categories' => Category::get()]);
     }
 
     /**
@@ -55,9 +58,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit', ['category' => $category]);
     }
 
     /**
@@ -67,9 +71,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id)->update($request->all());
+        
+        return redirect()->route('category.index');
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Log;
+use App\Category;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
@@ -31,7 +32,7 @@ class LogController extends Controller
      */
     public function create()
     {
-        return view('logs.create');
+        return view('logs.create', ['categories' => Category::get()]);
     }
 
     /**
@@ -44,8 +45,8 @@ class LogController extends Controller
     {
         $log = Log::create([
             'user_id' => auth()->user()->id,
-            'operation' => (bool)$request->operation,
-            'category' => $request->category,
+            'category_id' => (int)$request->category,
+            'operation' => $request->operation,
             'product' => $request->product ?? '',
             'price' => (double)$request->price,
             'comments' => $request->comments ?? '',
@@ -73,7 +74,10 @@ class LogController extends Controller
     public function edit($id)
     {
         $log = Log::find($id);
-        return view('logs.edit', ['log' => $log]);
+        return view('logs.edit', [
+            'log' => $log,
+            'categories' => Category::get()
+        ]);
     }
 
     /**

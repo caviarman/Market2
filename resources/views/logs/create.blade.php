@@ -8,20 +8,17 @@
             <label for="operation">Операция</label>
             <select class="form-control" id="operation" name="operation">
                 <option selected>выбрать тип операции</option>
-                <option value="1">Приход</option>
-                <option value="0">Расход</option>
+                <option value="Приход">Приход</option>
+                <option value="Расход">Расход</option>
             </select>
         </div>
         <div class="form-group">
             <label for="category">Категория</label>
             <select class="form-control" id="category" name="category">
                 <option selected>выбрать категорию</option>
-                <option value="Продукты">Продукты</option>
-                <option value="Хозяйство">Хозяйство</option>
-                <option value="Школа">Школа</option>
-                <option value="Здоровье">Здоровье</option>
-                <option value="Отдых">Отдых</option>
-                <option value="Другое">Другое</option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}"> {{ $category->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
