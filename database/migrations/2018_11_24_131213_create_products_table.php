@@ -18,9 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->double('sellPrice', 6, 2);
             $table->double('buyPrice', 6, 2);
-            $table->double('stock', 6, 2);
+            $table->double('profit', 6, 2);
             $table->string('measure');
-            $table->text('comment');
+            $table->text('comments');
             $table->timestamps();
         });
     }
