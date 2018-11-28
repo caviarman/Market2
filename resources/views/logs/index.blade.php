@@ -41,4 +41,7 @@
         </tbody>
     </table>
 </div>
+<div class="container">
+{{ $logs->links() }}
+</div>
 @endsection
