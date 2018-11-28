@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Sale;
 use App\Good;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -20,7 +21,7 @@ class SaleController extends Controller
     public function index()
     {
         return view('sales.index', [
-            'sales' => auth()->user()->sales()->orderBy('id', 'DESC')->paginate(10)
+            'sales' => auth()->user()->sales()->orderBy('created_at', 'DESC')->paginate(10)
             ]
         );
     }
@@ -102,5 +103,20 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         //
+    }
+    public function test(Request $request)
+    {
+        $sales = Sale::get();
+        
+        $s = $sales->filter(
+            function ($value, $key) use ($request) {
+                return $value->created_at->day == (int)($request->day);
+            }
+        );
+        return $s;
+    }
+    public function testshow()
+    {
+        return view('test');    
     }
 }
