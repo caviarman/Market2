@@ -17,7 +17,7 @@
             <tr>
             <th scope="col">#</th>
             <th scope="col">Наименование</th>
-            <th scope="col">Цена покупки</th>
+            <th scope="col">Себестоимость</th>
             <th scope="col">Цена продажи</th>
             <th scope="col">Маржа</th>
             <th scope="col">Ед измерения</th>

@@ -9,7 +9,7 @@
             <input type="text" name="name" class="form-control" id="name">
         </div>
         <div class="form-group">
-            <label for="buyPrice">Цена покупки</label>
+            <label for="buyPrice">Себестоимость</label>
             <input type="text" name="buyPrice" class="form-control" id="buyPrice">
         </div>
         <div class="form-group">
