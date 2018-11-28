@@ -23,8 +23,8 @@
         </div>
         <div class="form-group">
             <label for="measure">Ед измерения</label>
-            <select class="form-control" id="measure" name="measure" value="{{ $good->measure }}">
-                <option selected>...</option>
+            <select class="form-control" id="measure" name="measure">
+                <option selected value="{{ $good->measure }}">{{ $good->measure }}</option>
                 <option value="kg">kg</option>
             </select>
         </div>

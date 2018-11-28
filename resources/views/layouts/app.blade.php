@@ -36,6 +36,15 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('category.index') }}">Категории<span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('goods.index') }}">Товары<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('logs.index') }}">Записи<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('sales.index') }}">Продажи<span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -14,6 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/sales', 'SaleController@index')->name('sales.index');
+Route::get('/sales/create', 'SaleController@create')->name('sales.create');
+Route::get('/sales/{id}', 'SaleController@show')->name('sales.show');
+Route::post('/sales', 'SaleController@store')->name('sales.store');
+Route::get('/sales/{id}/edit', 'SaleController@edit')->name('sales.edit');
+Route::patch('/sales/{id}', 'SaleController@update')->name('sales.update');
+Route::delete('/sales/{id}', 'SaleController@destroy')->name('sales.delete');
+
 Route::get('/goods', 'GoodController@index')->name('goods.index');
 Route::get('/goods/create', 'GoodController@create')->name('goods.create');
 Route::get('/goods/{id}', 'GoodController@show')->name('goods.show');
