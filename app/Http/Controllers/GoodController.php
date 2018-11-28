@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Good;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class GoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ProductController extends Controller
     }
     public function index()
     {
-        return view('products.index', ['products' => Product::get()]);
+        return view('goods.index', ['goods' => Good::get()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('goods.create');
     }
 
     /**
@@ -39,16 +39,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $good = Good::create([
+            'name' => $request->name,
+            'sellPrice' => (double)$request->sellPrice,
+            'buyPrice' => (double)$request->buyPrice,
+            'profit' => (double)$request->profit,
+            'measure' => $request->measure,
+            'comments' => $request->comments ?? '',
+        ]);
+        return redirect()->route('goods.index', ['goods' => Good::get()]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Good $good)
     {
         //
     }
@@ -56,34 +64,40 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $good = Good::find($id);
+        return view('goods.edit', [
+            'good' => $good
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $good = Good::find($id)->update($request->all());
+        
+        return redirect()->route('goods.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Good::find($id)->delete();
+        return redirect()->route('goods.index');
     }
 }

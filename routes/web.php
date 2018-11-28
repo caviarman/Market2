@@ -14,13 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/products', 'ProductController@index')->name('products.index');
-Route::get('/products/create', 'ProductController@create')->name('products.create');
-Route::get('/products/{id}', 'ProductController@show')->name('products.show');
-Route::post('/products', 'ProductController@store')->name('products.store');
-Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
-Route::patch('/products/{id}', 'ProductController@update')->name('products.update');
-Route::delete('/products/{id}', 'ProductController@destroy')->name('products.delete');
+Route::get('/goods', 'GoodController@index')->name('goods.index');
+Route::get('/goods/create', 'GoodController@create')->name('goods.create');
+Route::get('/goods/{id}', 'GoodController@show')->name('goods.show');
+Route::post('/goods', 'GoodController@store')->name('goods.store');
+Route::get('/goods/{id}/edit', 'GoodController@edit')->name('goods.edit');
+Route::patch('/goods/{id}', 'GoodController@update')->name('goods.update');
+Route::delete('/goods/{id}', 'GoodController@destroy')->name('goods.delete');
 
 Route::get('/logs', 'LogController@index')->name('logs.index');
 Route::get('/logs/create', 'LogController@create')->name('logs.create');

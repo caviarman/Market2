@@ -84,7 +84,7 @@
                     Market
                 </div>
                 <div class="links">
-                    <a href="{{ route('products.index') }}">Products</a>
+                    <a href="{{ route('goods.index') }}">Products</a>
                     <a href="{{ route('logs.index') }}">Money diary</a>
                 </div>
             </div>
