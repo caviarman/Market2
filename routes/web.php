@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'SaleController@testshow')->name('test.show');
-Route::post('/test', 'SaleController@test')->name('test.test');
+Route::get('/sales/filter', 'SaleController@filterShow')->name('filter.show');
+Route::post('/sales/filter', 'SaleController@filter')->name('filter.get');
 
 Route::get('/sales', 'SaleController@index')->name('sales.index');
 Route::get('/sales/create', 'SaleController@create')->name('sales.create');

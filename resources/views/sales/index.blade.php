@@ -10,6 +10,9 @@
     <p>
         <a class="btn btn-secondary" href="{{ route('sales.create') }}" role="button">Добавить</a>
     </p>
+    <p>
+        <a class="btn btn-secondary" href="{{ route('filter.show') }}" role="button">Отфильтровать</a>
+    </p>
 </div>
 <div class="container">
     <table class="table table-striped">
@@ -46,6 +49,6 @@
     </table>
 </div>
 <div class="container">
-{{ $sales->links() }}
+
 </div>
 @endsection

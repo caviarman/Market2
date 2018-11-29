@@ -104,19 +104,31 @@ class SaleController extends Controller
     {
         //
     }
-    public function test(Request $request)
+    public function filter(Request $request)
     {
         $sales = Sale::get();
         
         $s = $sales->filter(
             function ($value, $key) use ($request) {
-                return $value->created_at->day == (int)($request->day);
+                return 
+                    $value->created_at->day == (int)($request->day) &&
+                    $value->created_at->month == (int)($request->month) &&
+                    $value->created_at->year == (int)($request->year);
             }
         );
-        return $s;
+        return view('sales.index', [
+            'sales' => $s
+            ]
+        );
     }
-    public function testshow()
+    public function filterShow()
     {
-        return view('test');    
+        $date = Carbon::now();
+        return view('sales.filter', [
+            'day' => $date->day,
+            'month' => $date->month,
+            'year' => $date->year,
+            ]
+        );    
     }
 }
