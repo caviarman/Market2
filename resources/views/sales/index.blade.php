@@ -7,7 +7,7 @@
     </p>
 </div>
 <div class="container">
-    @if (isset($profitSum || $sellSum))
+    @if ($profitSum ?? '')
     <p>Итого маржа = {{ $profitSum }}</p>
     <p>Итого касса = {{ $sellSum }}</p>
     @endif
