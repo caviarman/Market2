@@ -113,7 +113,8 @@ class SaleController extends Controller
                 $start = Carbon::createFromFormat('Y-m-d H', "{$request->start} 00");
                 $finish = Carbon::createFromFormat('Y-m-d H', "{$request->finish} 23");
                 return
-                $value->created_at->greaterThan($start) && $value->created_at->lessThan($finish);
+                    $value->created_at->greaterThan($start) &&
+                    $value->created_at->lessThan($finish);
             }
         );
         $profitSum = $filtred->reduce(
@@ -137,10 +138,6 @@ class SaleController extends Controller
     }
     public function filterShow()
     {
-        $date = Carbon::now();
-        return view('sales.filter', [
-            'date' => $date->day,
-            ]
-        );
+        return view('sales.filter');
     }
 }
