@@ -7,6 +7,12 @@
     </p>
 </div>
 <div class="container">
+    @if (isset($profitSum || $sellSum))
+    <p>Итого маржа = {{ $profitSum }}</p>
+    <p>Итого касса = {{ $sellSum }}</p>
+    @endif
+</div>
+<div class="container">
     <p>
         <a class="btn btn-secondary" href="{{ route('sales.create') }}" role="button">Добавить</a>
     </p>
@@ -47,8 +53,5 @@
             @endforeach
         </tbody>
     </table>
-</div>
-<div class="container">
-
 </div>
 @endsection

@@ -21,7 +21,7 @@ class SaleController extends Controller
     public function index()
     {
         return view('sales.index', [
-            'sales' => auth()->user()->sales()->orderBy('created_at', 'DESC')->paginate(10)
+            'sales' => auth()->user()->sales()->orderBy('created_at', 'DESC')->paginate(100)
             ]
         );
     }
@@ -108,16 +108,30 @@ class SaleController extends Controller
     {
         $sales = Sale::get();
         
-        $s = $sales->filter(
+        $filtred = $sales->filter(
             function ($value, $key) use ($request) {
-                return 
+                return
                     $value->created_at->day == (int)($request->day) &&
                     $value->created_at->month == (int)($request->month) &&
                     $value->created_at->year == (int)($request->year);
             }
         );
+        $profitSum = $filtred->reduce(
+            function ($acc, $item) {
+                return $acc + $item->profit;
+            },
+            0
+        );
+        $sellSum = $filtred->reduce(
+            function ($acc, $item) {
+                return $acc + $item->sum;
+            },
+            0
+        );
         return view('sales.index', [
-            'sales' => $s
+            'sales' => $filtred,
+            'profitSum' => $profitSum,
+            'sellSum' => $sellSum
             ]
         );
     }
